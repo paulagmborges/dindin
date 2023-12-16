@@ -1,9 +1,13 @@
-const jwt = require("jsonwebtoken");
-const senhaJwt = require("../senhaJwt");
-const pool = require("../conexao");
+require('dotenv').config()
+const jwt = require('jsonwebtoken')
+require('dotenv').config()
+const pool = require('../conexao')
 
 const verificaLogin = async (req, res, next) => {
+
   const { authorization } = req.headers
+
+  const senhaSecreta = process.env.SENHAJWT
 
   try {
     if (!authorization) {
@@ -13,11 +17,9 @@ const verificaLogin = async (req, res, next) => {
 
     const token = authorization.split(" ")[1]
 
+    const { id } = jwt.verify(token, senhaSecreta)
 
-
-    const { id } = jwt.verify(token, senhaJwt)
-
-    const usuario = await pool.query("select * from usuarios where id = $1", [
+    const usuario = await pool.query('select id, nome, email from usuarios where id = $1', [
       id,
     ])
 
@@ -26,8 +28,6 @@ const verificaLogin = async (req, res, next) => {
       return res.status(401).json({ mensagem: "Para acessar este recurso um token de autenticação válido deve ser enviado" });
     }
     req.usuario = usuario.rows[0]
-
-   
 
     next();
   } catch (error) {

@@ -1,4 +1,4 @@
-const express = require("express")
+const express = require('express')
 const rotas = express()
 
 const {
@@ -8,16 +8,15 @@ const {
     atualizarUsuario
 } = require('./controladores/usuario')
 
-
 const { listarTransacoes, detalharTransacao, cadastrarTransacao, atualizarTransacao, excluirTransacao, obterExtrato  } = require("./controladores/transacao");
 
-const verificaLogin = require("./intermediario/verificaLogin")
+const verificaLogin = require('./intermediario/verificaLogin')
 
 const {listarCategorias} = require('./controladores/categorias')
 
 
 rotas.post('/usuario',cadastrarUsuario)
-rotas.post("/login",login)
+rotas.post('/login',login)
 rotas.get('/categorias',listarCategorias)
 
 
