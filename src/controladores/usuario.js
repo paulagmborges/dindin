@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt')
 const pool = require('../conexao')
 const jwt = require('jsonwebtoken')
 
+
 const cadastrarUsuario = async (req, res) => {
 
   const { nome, email, senha } = req.body
@@ -41,7 +42,7 @@ const login = async (req, res) => {
 
   try {
     if (!email || !senha) {
-      return res.status(400).json({ mensagem: "Todos os campos são obrigatórios" });
+      return res.status(400).json({ mensagem: 'Todos os campos são obrigatórios' });
     }
 
     const buscarUsuario = await pool.query(
@@ -61,7 +62,7 @@ const login = async (req, res) => {
 
     const { senha: _, ...usuarioLogado } = buscarUsuario.rows[0];
 
-    const token = jwt.sign({ id: usuarioLogado.id },process.env.SENHAJWT, { expiresIn: '8h' })
+    const token = jwt.sign({ id: usuarioLogado.id }, process.env.JWT_SENHA , { expiresIn: '8h' })
 
     return res.status(200).json({ usuario: usuarioLogado, token, })
   } catch (error) {
