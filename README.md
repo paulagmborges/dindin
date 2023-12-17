@@ -45,7 +45,7 @@ Você quer contribuir com esse projeto?
 4. Execute a aplicação em modo de desenvolvimento npm run dev;
 5. Realize as alterações no código;
 6. Realize o Pull Request (PR) para esse repositório<br>
- Desenvolvedores :<br>
+Desenvolvedores :<br>
   - [Paula Borges](https://github.com/paulagmborges)
   - [Neuany Santos](https://github.com/Neuany)
    
