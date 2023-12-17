@@ -38,10 +38,14 @@ Execute o projeto com o seguinte comando:
 ```
 npm run dev
 ```
- Você quer contribuir com esse projeto?
+Você quer contribuir com esse projeto?
 1. Realize o clone desse projeto;
 2. Acesse o proeto no terminal cd sistema-gerenciador-financeiro-api-rest;
 3. Instale as dependências do projeto utilizando o comando npm i;
 4. Execute a aplicação em modo de desenvolvimento npm run dev;
 5. Realize as alterações no código;
-6. Realize o Pull Request (PR) para esse repositório;
+6. Realize o Pull Request (PR) para esse repositório<br>
+ Desenvolvedores :<br>
+  - [Paula Borges](https://github.com/paulagmborges)
+  - [Neuany Santos](https://github.com/Neuany)
+   
